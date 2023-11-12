@@ -4,8 +4,8 @@
 ![스타게이트-0](/readmeImages/스타게이트-0.png)
 
 ## Link
- - [스타게이트 Link](https://stargatea406.netlify.app/)
- - [Visit Project Repository](https://lab.ssafy.com/s09-webmobile1-sub2/S09P12A406)
+ - [관리자 관점 시연영상](https://youtu.be/5--jl63PSaE)
+ - [팬 관점 시연영상](https://youtu.be/jkVMuuSQKvY)
 
 ## Guide
 
