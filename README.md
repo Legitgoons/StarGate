@@ -1,11 +1,8 @@
 ## <img src="https://pic.sopili.net/pub/emoji/twitter/2/72x72/1f320.png" width=32 height=32> 스타게이트
-#### [화상통화 팬사인회 App 스타게이트](https://stargatea406.netlify.app/)
 
 ![스타게이트-0](/readmeImages/스타게이트-0.png)
-
-## Link
- - [관리자 관점 시연영상](https://youtu.be/5--jl63PSaE)
- - [팬 관점 시연영상](https://youtu.be/jkVMuuSQKvY)
+### [관리자 관점 시연영상](https://youtu.be/5--jl63PSaE)
+### [팬 관점 시연영상](https://youtu.be/jkVMuuSQKvY)
 
 ## Guide
 
