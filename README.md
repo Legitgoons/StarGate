@@ -27,13 +27,14 @@
 ## Contents
 0. [Dev 서버 구동방법](#dev-서버-구동방법)
 1. [개발 배경](#개발-배경)
-2. [Soultion](#soultion)
+2. [Solution](#solution)
 3. [Skills](#skills)
-4. [Structure](#structure)
-5. [Team](#team)
-6. [Project Control](#project-control)
-7. [Code Convention](#code-convention)
-8. [Challenges](#challenges)
+4. [architecture](#architecture)
+5. [Folder Structure](#folder-structure)
+6. [Team](#team)
+7. [Project Control](#project-control)
+8. [Code Convention](#code-convention)
+9. [Challenges](#challenges)
 
 ## Dev 서버 구동방법
 아래 코드를 터미널에 붙여넣습니다.
@@ -69,6 +70,8 @@ pnpm run dev
 ![스타게이트_14](/readmeImages/스타게이트-14.png)
 ## architecture
 ![스타게이트_15](/readmeImages/스타게이트-15.png)
+### Sequence Diagram
+![image](https://github.com/Legitgoons/StarGate/assets/101088491/dda6fd8f-2b35-4eea-96ed-5e34368db865)
 ## Folder Structure
 ### Frontend
 ##### Frontend에서는 Atomic Design Pattern을 커스텀하여 Atoms, Organisms, Pages 3단계로 나눠서 구현하였습니다.<br>
