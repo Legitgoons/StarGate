@@ -14,16 +14,18 @@ export interface MemberData {
  */
 
 export interface BoardData {
-  ongoing: MeetingData[];
-  expected: MeetingData[];
-  finished: MeetingData[];
+  ongoing: MeetingBoardData[];
+  expected: MeetingBoardData[];
+  finished: MeetingBoardData[];
 }
+
 /**
  * @param uuid => 미팅 구분할 uuid
  * @param remainingTime => 남은 시간(초)
  * @param imageFileInfo => 이미지 정보
  */
-export interface MeetingData {
+
+export interface MeetingBoardData {
   uuid: string;
   name: string;
   startDate: string;
