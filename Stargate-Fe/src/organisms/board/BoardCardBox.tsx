@@ -1,25 +1,7 @@
 import BoardCard from '../../atoms/board/BoardCard';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-/**
- * BoardCardBoxProps
- * @param uuid => 미팅에 부여되는 고유 번호
- * @param imageSrc => 이미지 api 주소
- * @param title => Box 측면에서 보여줄 사인회 제목
- * @param date => Box 측면에서 보여줄 사인회 날짜
- * @param remainingTime => Box 측면에서 보여줄 남은 시간
- * @param isAdmin => admin 여부에 따라 확인 후 버튼 이름 변경
- */
-
-interface BoardCardBoxProps {
-  uuid?: string;
-  imageSrc?: string;
-  title?: string;
-  date?: string;
-  remainingTime?: number;
-  isAdmin?: boolean;
-  isLoading: boolean;
-}
+import { BoardCardBoxProps } from '@/types/board/type';
 
 const BoardCardBox = ({
   uuid,

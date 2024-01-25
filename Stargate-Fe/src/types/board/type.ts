@@ -18,6 +18,32 @@ export interface BoardData {
   expected: MeetingData[];
   finished: MeetingData[];
 }
+
+/**
+ * CardBoxData
+ * @param uuid => 미팅에 부여되는 고유 번호
+ * @param imageSrc => 이미지 api 주소
+ * @param title => Box 측면에서 보여줄 사인회 제목
+ * @param date => Box 측면에서 보여줄 사인회 날짜
+ * @param remainingTime => Box 측면에서 보여줄 남은 시간
+ * @param isAdmin => admin 여부에 따라 확인 후 버튼 이름 변경
+ */
+
+export interface CardBoxData {
+  name: string | undefined;
+  startDate: string | undefined;
+  uuid?: string;
+  imageSrc?: string;
+  title?: string;
+  date?: string;
+  remainingTime?: number;
+  isAdmin?: boolean;
+}
+
+export interface BoardCardBoxProps extends CardBoxData {
+  isLoading: boolean;
+}
+
 /**
  * @param uuid => 미팅 구분할 uuid
  * @param remainingTime => 남은 시간(초)
