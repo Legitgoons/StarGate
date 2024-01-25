@@ -8,14 +8,14 @@ import { ImageFileInfo } from '@/types/board/type';
  */
 
 interface BoardCardListProps {
-  meetings?: MeetingData[];
+  meetings?: MeetingCardData[];
   isAdmin?: boolean;
   isLoading: boolean;
   isOver?: boolean;
 }
 
 /**
- * MeetingData
+ * MeetingCardData
  * @param uuid => 사인회 고유번호
  * @param name => Card flip시 보여줄 사인회 제목
  * @param start_date => Card flip시 보여줄 사인회 날짜
@@ -23,7 +23,7 @@ interface BoardCardListProps {
  * @param imageFileInfo => 이미지 api 주소
  */
 
-interface MeetingData {
+interface MeetingCardData {
   uuid: string;
   name: string;
   startDate: string;
