@@ -5,6 +5,9 @@ export const useUpdateTime = (
   data: BoardData,
   setData: React.Dispatch<React.SetStateAction<BoardData>>
 ) => {
+  const userAgent = window.navigator.userAgent;
+  const delay = userAgent.includes('firefox') ? 985 : 1000;
+
   useEffect(() => {
     const interval = setInterval(() => {
       setData((prevData) => ({
@@ -28,7 +31,7 @@ export const useUpdateTime = (
           return meeting;
         }),
       }));
-    }, 1000);
+    }, delay);
 
     return () => clearInterval(interval);
   }, [data, setData]);
