@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { browserState } from '@/recoil/browserState';
 import { BoardData } from '@/types/board/type';
 
 export const useUpdateTime = (
@@ -7,32 +9,62 @@ export const useUpdateTime = (
 ) => {
   const userAgent = window.navigator.userAgent;
   const delay = userAgent.includes('firefox') ? 985 : 1000;
+  const isV8 = useRecoilValue(browserState);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setData((prevData) => ({
-        ...prevData,
-        ongoing: prevData.ongoing.map((meeting) => {
-          if (meeting.remainingTime > 0) {
-            return {
-              ...meeting,
-              remainingTime: meeting.remainingTime - 1,
-            };
-          }
-          return meeting;
-        }),
-        expected: prevData.expected.map((meeting) => {
-          if (meeting.remainingTime > 0) {
-            return {
-              ...meeting,
-              remainingTime: meeting.remainingTime - 1,
-            };
-          }
-          return meeting;
-        }),
-      }));
-    }, delay);
+    if (isV8) {
+      const worker = new Worker('./timerWorker.ts');
 
-    return () => clearInterval(interval);
-  }, [data, setData]);
+      worker.onmessage = () => {
+        setData((prevData) => ({
+          ...prevData,
+          ongoing: prevData.ongoing.map((meeting) => {
+            if (meeting.remainingTime > 0) {
+              return {
+                ...meeting,
+                remainingTime: meeting.remainingTime - 1,
+              };
+            }
+            return meeting;
+          }),
+          expected: prevData.expected.map((meeting) => {
+            if (meeting.remainingTime > 0) {
+              return {
+                ...meeting,
+                remainingTime: meeting.remainingTime - 1,
+              };
+            }
+            return meeting;
+          }),
+        }));
+      };
+      return () => worker.terminate();
+    } else {
+      const interval = setInterval(() => {
+        setData((prevData) => ({
+          ...prevData,
+          ongoing: prevData.ongoing.map((meeting) => {
+            if (meeting.remainingTime > 0) {
+              return {
+                ...meeting,
+                remainingTime: meeting.remainingTime - 1,
+              };
+            }
+            return meeting;
+          }),
+          expected: prevData.expected.map((meeting) => {
+            if (meeting.remainingTime > 0) {
+              return {
+                ...meeting,
+                remainingTime: meeting.remainingTime - 1,
+              };
+            }
+            return meeting;
+          }),
+        }));
+      }, delay);
+
+      return () => clearInterval(interval);
+    }
+  }, [data, setData, isV8]);
 };
