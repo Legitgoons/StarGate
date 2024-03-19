@@ -1,9 +1,13 @@
+import { useEffect } from 'react';
+import { useSetRecoilState } from 'recoil';
+import { browserState } from '@/recoil/browserState';
 import PlusButton from '@/atoms/board/PlusMinusButton';
 import BoardCardBox from '@/organisms/board/BoardCardBox';
 import BoardCardList from '@/organisms/board/BoardCardList';
 import BoardHeader from '@/organisms/board/BoardHeader';
 import { BoardData, MeetingBoardData } from '@/types/board/type';
 import { Link } from 'react-router-dom';
+import { browserAlert } from '@/utils/browserAlert';
 
 interface BoardTemplateProps {
   isAdmin: boolean;
@@ -24,6 +28,16 @@ const BoardTemplate = ({
   isExpected,
   isFinished,
 }: BoardTemplateProps) => {
+  const setBrowser = useSetRecoilState(browserState);
+  const userAgent = window.navigator.userAgent;
+
+  useEffect(() => {
+    if (userAgent.includes('Mac') || userAgent.includes('Firefox')) {
+      setBrowser(false);
+      browserAlert(userAgent);
+    }
+  }, []);
+
   return (
     <div className="flex flex-col justify-around min-h-screen bg-no-repeat bg-cover w-xl bg-gradient-to-b from-mainblue to-mainyellow">
       <BoardHeader isAdmin={isAdmin} />

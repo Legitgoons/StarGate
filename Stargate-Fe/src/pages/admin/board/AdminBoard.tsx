@@ -1,10 +1,10 @@
 import BoardTemplate from '@/template/board/BoardTemplate';
-import { useFetchData } from '@/hooks/useFetchBoardData';
+import { useFetchBoardData } from '@/hooks/useFetchBoardData';
 import { useUpdateTime } from '@/hooks/useUpdateTime';
 import { MeetingBoardData } from '@/types/board/type';
 
 const AdminBoard = () => {
-  const { loading, data, setData } = useFetchData(true);
+  const { loading, data, setData } = useFetchBoardData(true);
   useUpdateTime(data, setData);
 
   /**
