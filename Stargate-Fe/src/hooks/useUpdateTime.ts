@@ -12,7 +12,7 @@ export const useUpdateTime = (
   const isV8 = useRecoilValue(browserState);
 
   useEffect(() => {
-    if (isV8) {
+    if (isV8 && window.Worker) {
       const worker = new Worker('./timerWorker.ts');
 
       worker.onmessage = () => {
