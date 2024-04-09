@@ -13,7 +13,7 @@ export const useUpdateTime = (
 
   useEffect(() => {
     if (isV8 && window.Worker) {
-      const worker = new Worker('./timerWorker.ts');
+      const worker = new Worker(new URL('./timerWorker.ts', import.meta.url));
 
       worker.onmessage = () => {
         setData((prevData) => ({
